@@ -1,0 +1,32 @@
+---
+title: "Roads and Vehicles"
+format: html
+description: "The recent history of roads and vehicles"
+author: "Ben Tupper"
+date: "2024-09-25"
+---
+
+This is the first post for the newly revived [Tandy Center for Ocean Forecasting](https://www.bigelow.org/services/ocean-forecasting/) blog. Oddly enough it's not about oceans or forecasting, but instead it is about a common summertime topic of conversation: traffic!  Yes, [Maine](https://maps.app.goo.gl/7ProFrPYHiMpZuBS7) is a much beloved vacation destination in the summer.  It's beautiful here year round, but summer provides a special draw and with it transportation needs of all those visitors. Recently we were discussing the challenges of summer traffic and one of us wondered aloud (tongue-in-cheek) if each tourist brought two cars. We then wondered if there was any data to support our conjecture that there are many more cars around than when we were kids.
+
+And sure enough, the US Department of Transportation's data portal, provides data on [vehicle registrations](https://datahub.transportation.gov/Roadways-and-Bridges/Motor-Vehicle-Registrations-by-vehicle-type-and-st/hwtm-7xmz/data_preview) (going back to 1900!) and [public roads](https://www.bts.gov/state-transportation-infrastructure) (going back to 1995). That was enough information for us to dive in!
+
+Here is a plot showing the number vehicle registrations (cars, truck, buses and morotcycles) by state since 1900. Maine is highlighted in orange, and the populous states (Calif, NY, texas, ...) not unexpectedly have a lot of registered vehicles.  Clearly the number of vehicles takes off after World War II.  It's not possible for us to explain why the number of vehicles in any state might have wild jumps - but we assume that the overall trends reflect the reality pretty well.
+
+![registrations](regs.png)
+Next we look at the miles of public roads by state, but do note that the date range is now clipped to start in 1995 (when DOT's dataset begins).  Once again, Maine is highlighted in orange and the big states have a lot of public roadways. It's remarkable how relatively stable the length of public roadways has remained over the last 30 years.   
+
+![roads](roads.png)
+Finally, we show the ratio of vehicles per mile of public roadway. 
+
+![density](density.png)
+
+Over the last 30 years the number of registered vehicles per mile of public road seems quite stable. If anything, the ratio has decreased in Maine over the last 5 years or so.  Huh.  
+
+Well, of course, the DOT doesn't tell us anything about the number of visitors in the summer.  But is an interesting insight, and quite frankly, for us curmudgeonly locals it comes as a surprise. 
+
+There is one related bit of insight provided by the [Maine Turnpike Authority](https://maineturnpike.com/About-MTA/Traffic-Statistics/Traffic-by-Year.aspx?s=2000&e=2024),that gives us old-timers hope that we are right about the increasing number of cars on the road.  The number of cars using the Maine Turnpike has been generally increasing over the years.
+
+![mta-traffic](mta-traffic.png)
+
+
+

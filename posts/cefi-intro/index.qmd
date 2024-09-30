@@ -1,0 +1,20 @@
+---
+title: "Intro to cefi"
+format: html
+description: "Introduction to the cefi package"
+author: "Ben Tupper"
+date: "2024-09-27"
+---
+
+Recently we started investigating the relatively new [CEFI data portal](https://psl.noaa.gov/cefi_portal/) which looks to be a promising source of modeled environmental covariates suitable for ecological forecasting.  The services and datasets are not fully implemented yet, but we are looking ahead to when we might be able to roll these into our workflows. To that end we have created the [cefi](https://github.com/BigelowLab/cefi) R package. 
+
+CEFI data is served via a [THREDDS](https://docs.unidata.ucar.edu/tds/current/userguide/index.html) and provides dynamic data access using [OPeNDAP](https://www.opendap.org/).  We have always leveraged the [ncdf4 R package](https://CRAN.R-project.org/package=ncdf4), but this time we decided to try our hand at Michael Sumner's [tidync R package](https://CRAN.R-project.org/package=tidync).  CEFI data elements are arrayed outputs from model runs (historical and forecast); to cast these as geospatial raster data we access a second "static" data element (also OPeNDAP). We hide all of these details from the user so that obtaining data in a familiar form is quick and easy.
+
+Below we show a single forecasted data product for the temperature of the sea floor in the Northwest Atlantic region in mid-90s. Here we show the temperature of the bottom (C) for one month. We are still learning the finer details of how to work with this data, but it looks promising. We do wish it followed the coastline more closely (the bane of the near-shore scientist!)
+
+![Map showing bottom temps](tob-map.png)
+
+Then we extract the values for the complete forecast (12 months) at the location shown above using the blue circle. Then we plot the forecasted temperatures at that location.
+
+![Plot showing timeseries](tob-timeseries.png)
+
