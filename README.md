@@ -30,7 +30,16 @@ To keep things light weight please do **not** include code in your `index.qmd` u
 
 ## Categories
 
-Let's be judicious in our use of categories (tags really) to facilitate searching by keywords. 
+Let's be judicious in our use of categories (tags really) to facilitate searching by keywords. Let's start with these - add them to your post's index.qmd YAML header as you see fit.
+
+```
+categories:
+  - news
+  - code
+  - analysis
+  - data
+  - packages
+```
 
 
 ## Programming examples vs tutorials

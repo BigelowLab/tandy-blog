@@ -4,6 +4,9 @@ format: html
 description: "Introduction to the cefi package"
 author: "Ben Tupper"
 date: "2024-09-27"
+categories:
+  - data
+  - packages
 ---
 
 Recently we started investigating the relatively new [CEFI data portal](https://psl.noaa.gov/cefi_portal/) which looks to be a promising source of modeled environmental covariates suitable for ecological forecasting.  The services and datasets are not fully implemented yet, but we are looking ahead to when we might be able to roll these into our workflows. To that end we have created the [cefi](https://github.com/BigelowLab/cefi) R package. 

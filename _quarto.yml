@@ -4,12 +4,15 @@ project:
 
 website:
   title: "Tandy Center for Ocean Forecasting"
-  description: "Data science blog for the Tandy Center"
+  site-url: https://bigelowlab.github.io/tandy-blog/
+  description: "Data science blog"
   navbar:
     right:
       - about.qmd
       - icon: github
         href: https://github.com/bigelowlab/tandy-blog
+      - icon: rss
+        href: index.xml
 html:
   theme: cosmo
   css: styles.css

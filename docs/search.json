@@ -1,24 +1,17 @@
 [
   {
-    "objectID": "posts/welcome/index.html",
-    "href": "posts/welcome/index.html",
-    "title": "Welcome To My Blog",
+    "objectID": "posts/2024-09-27_cefi_intro/index.html",
+    "href": "posts/2024-09-27_cefi_intro/index.html",
+    "title": "Intro to cefi",
     "section": "",
-    "text": "This is the first post in a Quarto blog. Welcome!\n\nSince this post doesn’t specify an explicit image, the first image in the post will be used in the listing page of posts."
-  },
-  {
-    "objectID": "posts/post-with-code/index.html",
-    "href": "posts/post-with-code/index.html",
-    "title": "Post With Code",
-    "section": "",
-    "text": "This is a post with executable code.\n\n1 + 1\n\n[1] 2"
+    "text": "Recently we started investigating the relatively new CEFI data portal which looks to be a promising source of modeled environmental covariates suitable for ecological forecasting. The services and datasets are not fully implemented yet, but we are looking ahead to when we might be able to roll these into our workflows. To that end we have created the cefi R package.\nCEFI data is served via a THREDDS and provides dynamic data access using OPeNDAP. We have always leveraged the ncdf4 R package, but this time we decided to try our hand at Michael Sumner’s tidync R package. CEFI data elements are arrayed outputs from model runs (historical and forecast); to cast these as geospatial raster data we access a second “static” data element (also OPeNDAP). We hide all of these details from the user so that obtaining data in a familiar form is quick and easy.\nBelow we show a single forecasted data product for the temperature of the sea floor in the Northwest Atlantic region in mid-90s. Here we show the temperature of the bottom (C) for one month. We are still learning the finer details of how to work with this data, but it looks promising. We do wish it followed the coastline more closely (the bane of the near-shore scientist!)\n\n\n\nMap showing bottom temps\n\n\nThen we extract the values for the complete forecast (12 months) at the location shown above using the blue circle. Then we plot the forecasted temperatures at that location.\n\n\n\nPlot showing timeseries"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Tandy Center for Ocean Forecasting",
+    "title": "Data science blog",
     "section": "",
-    "text": "Welcome!\nWelcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nIntro to cefi\n\n\n\n\n\nIntroduction to the cefi package\n\n\n\n\n\n\nSep 27, 2024\n\n\nBen Tupper\n\n\n\n\n\n\n  \n\n\n\n\nRoads and Vehicles\n\n\n\n\n\nThe recent history of roads and vehicles\n\n\n\n\n\n\nSep 25, 2024\n\n\nBen Tupper\n\n\n\n\n\n\n  \n\n\n\n\nPost With Code\n\n\n\n\n\n\n\nnews\n\n\ncode\n\n\nanalysis\n\n\n\n\n\n\n\n\n\n\n\nSep 20, 2024\n\n\nHarlow Malloc\n\n\n\n\n\n\n  \n\n\n\n\nWelcome To My Blog\n\n\n\n\n\n\n\nnews\n\n\n\n\n\n\n\n\n\n\n\nSep 17, 2024\n\n\nTristan O’Malley\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome!\nWelcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n\n\n\n\nIntro to cefi\n\n\n\ndata\n\n\npackages\n\n\n\nIntroduction to the cefi package\n\n\n\nBen Tupper\n\n\nSep 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRoads and Vehicles\n\n\n\nnews\n\n\nanalysis\n\n\n\nThe recent history of roads and vehicles\n\n\n\nBen Tupper\n\n\nSep 25, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about.html",
@@ -28,15 +21,8 @@
     "text": "The Tandy Center for Ocean Forecasting is a computational oceanographic team at Bigelow Laboratory. We work with partners to develop and deploy real-time ocean forecasting tools for industry, conservation, resource management, communities, and education. Our aim is for people to have access to tools and resources they need to use and deploy forecasts.\nWe work both on developing new forecasting technologies and algorithms, and on putting forecasts in the hands of people to solve practical problems. The forecasts use cutting edge machine learning algorithms and draw on data ranging from satellites to measurements on the water.\nWe envision a world where ocean forecasts provide accessible and equitable tools for prospering in a changing ocean environment."
   },
   {
-    "objectID": "posts/cefi-intro/index.html",
-    "href": "posts/cefi-intro/index.html",
-    "title": "Intro to cefi",
-    "section": "",
-    "text": "Recently we started investigating the relatively new CEFI data portal which looks to be a promising source of modeled environmental covariates suitable for ecological forecasting. The services and datasets are not fully implemented yet, but we are looking ahead to when we might be able to roll these into our workflows. To that end we have created the cefi R package.\nCEFI data is served via a THREDDS and provides dynamic data access using OPeNDAP. We have always leveraged the ncdf4 R package, but this time we decided to try our hand at Michael Sumner’s tidync R package. CEFI data elements are arrayed outputs from model runs (historical and forecast); to cast these as geospatial raster data we access a second “static” data element (also OPeNDAP). We hide all of these details from the user so that obtaining data in a familiar form is quick and easy.\nBelow we show a single forecasted data product for the temperature of the sea floor in the Northwest Atlantic region in mid-90s. Here we show the temperature of the bottom (C) for one month. We are still learning the finer details of how to work with this data, but it looks promising. We do wish it followed the coastline more closely (the bane of the near-shore scientist!)\n\n\n\nMap showing bottom temps\n\n\nThen we extract the values for the complete forecast (12 months) at the location shown above using the blue circle. Then we plot the forecasted temperatures at that location.\n\n\n\nPlot showing timeseries"
-  },
-  {
-    "objectID": "posts/usdot-roads/index.html",
-    "href": "posts/usdot-roads/index.html",
+    "objectID": "posts/2024-09-25_usdot_roads/index.html",
+    "href": "posts/2024-09-25_usdot_roads/index.html",
     "title": "Roads and Vehicles",
     "section": "",
     "text": "This is the first post for the newly revived Tandy Center for Ocean Forecasting blog. Oddly enough it’s not about oceans or forecasting, but instead it is about a common summertime topic of conversation: traffic! Yes, Maine is a much beloved vacation destination in the summer. It’s beautiful here year round, but summer provides a special draw and with it transportation needs of all those visitors. Recently we were discussing the challenges of summer traffic and one of us wondered aloud (tongue-in-cheek) if each tourist brought two cars. We then wondered if there was any data to support our conjecture that there are many more cars around than when we were kids.\nAnd sure enough, the US Department of Transportation’s data portal, provides data on vehicle registrations (going back to 1900!) and public roads (going back to 1995). That was enough information for us to dive in!\nHere is a plot showing the number vehicle registrations (cars, truck, buses and morotcycles) by state since 1900. Maine is highlighted in orange, and the populous states (Calif, NY, texas, …) not unexpectedly have a lot of registered vehicles. Clearly the number of vehicles takes off after World War II. It’s not possible for us to explain why the number of vehicles in any state might have wild jumps - but we assume that the overall trends reflect the reality pretty well.\n Next we look at the miles of public roads by state, but do note that the date range is now clipped to start in 1995 (when DOT’s dataset begins). Once again, Maine is highlighted in orange and the big states have a lot of public roadways. It’s remarkable how relatively stable the length of public roadways has remained over the last 30 years.\n Finally, we show the ratio of vehicles per mile of public roadway.\n\n\n\ndensity\n\n\nOver the last 30 years the number of registered vehicles per mile of public road seems quite stable. If anything, the ratio has decreased in Maine over the last 5 years or so. Huh.\nWell, of course, the DOT doesn’t tell us anything about the number of visitors in the summer. But is an interesting insight, and quite frankly, for us curmudgeonly locals it comes as a surprise.\nThere is one related bit of insight provided by the Maine Turnpike Authority,that gives us old-timers hope that we are right about the increasing number of cars on the road. The number of cars using the Maine Turnpike has been generally increasing over the years.\n\n\n\nmta-traffic"

@@ -4,6 +4,9 @@ format: html
 description: "The recent history of roads and vehicles"
 author: "Ben Tupper"
 date: "2024-09-25"
+categories:
+  - news
+  - analysis
 ---
 
 This is the first post for the newly revived [Tandy Center for Ocean Forecasting](https://www.bigelow.org/services/ocean-forecasting/) blog. Oddly enough it's not about oceans or forecasting, but instead it is about a common summertime topic of conversation: traffic!  Yes, [Maine](https://maps.app.goo.gl/7ProFrPYHiMpZuBS7) is a much beloved vacation destination in the summer.  It's beautiful here year round, but summer provides a special draw and with it transportation needs of all those visitors. Recently we were discussing the challenges of summer traffic and one of us wondered aloud (tongue-in-cheek) if each tourist brought two cars. We then wondered if there was any data to support our conjecture that there are many more cars around than when we were kids.

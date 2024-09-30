@@ -6,10 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Tristan O’Malley">
-<meta name="dcterms.date" content="2024-09-17">
+<meta name="author" content="Ben Tupper">
+<meta name="dcterms.date" content="2024-09-25">
+<meta name="description" content="The recent history of roads and vehicles">
 
-<title>Tandy Center for Ocean Forecasting - Welcome To My Blog</title>
+<title>Tandy Center for Ocean Forecasting - Roads and Vehicles</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -91,6 +92,11 @@ ul.task-list li input[type="checkbox"] {
 </i> 
  <span class="menu-text"></span></a>
   </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="../../index.xml" rel="" target=""><i class="bi bi-rss" role="img">
+</i> 
+ <span class="menu-text"></span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools">
 </div>
@@ -102,9 +108,15 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Welcome To My Blog</h1>
-                                <div class="quarto-categories">
+      <h1 class="title">Roads and Vehicles</h1>
+                  <div>
+        <div class="description">
+          The recent history of roads and vehicles
+        </div>
+      </div>
+                          <div class="quarto-categories">
                 <div class="quarto-category">news</div>
+                <div class="quarto-category">analysis</div>
               </div>
                   </div>
   </div>
@@ -115,14 +127,14 @@ ul.task-list li input[type="checkbox"] {
       <div>
       <div class="quarto-title-meta-heading">Author</div>
       <div class="quarto-title-meta-contents">
-               <p>Tristan O’Malley </p>
+               <p>Ben Tupper </p>
             </div>
     </div>
       
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 17, 2024</p>
+        <p class="date">September 25, 2024</p>
       </div>
     </div>
     
@@ -140,9 +152,26 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<p>This is the first post in a Quarto blog. Welcome!</p>
-<p><img src="thumbnail.jpg" class="img-fluid"></p>
-<p>Since this post doesn’t specify an explicit <code>image</code>, the first image in the post will be used in the listing page of posts.</p>
+<p>This is the first post for the newly revived <a href="https://www.bigelow.org/services/ocean-forecasting/">Tandy Center for Ocean Forecasting</a> blog. Oddly enough it’s not about oceans or forecasting, but instead it is about a common summertime topic of conversation: traffic! Yes, <a href="https://maps.app.goo.gl/7ProFrPYHiMpZuBS7">Maine</a> is a much beloved vacation destination in the summer. It’s beautiful here year round, but summer provides a special draw and with it transportation needs of all those visitors. Recently we were discussing the challenges of summer traffic and one of us wondered aloud (tongue-in-cheek) if each tourist brought two cars. We then wondered if there was any data to support our conjecture that there are many more cars around than when we were kids.</p>
+<p>And sure enough, the US Department of Transportation’s data portal, provides data on <a href="https://datahub.transportation.gov/Roadways-and-Bridges/Motor-Vehicle-Registrations-by-vehicle-type-and-st/hwtm-7xmz/data_preview">vehicle registrations</a> (going back to 1900!) and <a href="https://www.bts.gov/state-transportation-infrastructure">public roads</a> (going back to 1995). That was enough information for us to dive in!</p>
+<p>Here is a plot showing the number vehicle registrations (cars, truck, buses and morotcycles) by state since 1900. Maine is highlighted in orange, and the populous states (Calif, NY, texas, …) not unexpectedly have a lot of registered vehicles. Clearly the number of vehicles takes off after World War II. It’s not possible for us to explain why the number of vehicles in any state might have wild jumps - but we assume that the overall trends reflect the reality pretty well.</p>
+<p><img src="regs.png" class="img-fluid" alt="registrations"> Next we look at the miles of public roads by state, but do note that the date range is now clipped to start in 1995 (when DOT’s dataset begins). Once again, Maine is highlighted in orange and the big states have a lot of public roadways. It’s remarkable how relatively stable the length of public roadways has remained over the last 30 years.</p>
+<p><img src="roads.png" class="img-fluid" alt="roads"> Finally, we show the ratio of vehicles per mile of public roadway.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="density.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">density</figcaption>
+</figure>
+</div>
+<p>Over the last 30 years the number of registered vehicles per mile of public road seems quite stable. If anything, the ratio has decreased in Maine over the last 5 years or so. Huh.</p>
+<p>Well, of course, the DOT doesn’t tell us anything about the number of visitors in the summer. But is an interesting insight, and quite frankly, for us curmudgeonly locals it comes as a surprise.</p>
+<p>There is one related bit of insight provided by the <a href="https://maineturnpike.com/About-MTA/Traffic-Statistics/Traffic-by-Year.aspx?s=2000&amp;e=2024">Maine Turnpike Authority</a>,that gives us old-timers hope that we are right about the increasing number of cars on the road. The number of cars using the Maine Turnpike has been generally increasing over the years.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="mta-traffic.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">mta-traffic</figcaption>
+</figure>
+</div>
 
 
 
