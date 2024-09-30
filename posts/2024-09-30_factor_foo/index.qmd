@@ -1,9 +1,9 @@
 ---
 title: "Factor foo"
 format: html
-description: "Introduction to the cefi package"
+description: "Introduction to factors"
 author: "Ben Tupper"
-date: "2024-09-27"
+date: "2024-09-30"
 categories:
   - R-code
   - analysis
@@ -11,8 +11,9 @@ categories:
 
 ![https://clipart-library.com/clipart/6cr5qM4oi.htm](6cr5qM4oi.jpg)
 
+## Fooey!
 
-Have you ever been frustrated by `factors` in R. `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed is that the nomenclature: "factors" and "levels" aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, as rose by any other name smells as sweet.
+Have you ever been frustrated by `factors` in R? `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed is that the nomenclature: "factors" and "levels" aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, as rose by any other name smells as sweet.
 
 Many operations in data science manipulations depend upon factored (categorical! grouped!) data.  In R this is very obvious when splitting data sets, plotting when color by group and when performing by-group statistics. 
 
