@@ -1,5 +1,5 @@
 ---
-title: "Intro to cefi"
+title: "Factor foo"
 format: html
 description: "Introduction to the cefi package"
 author: "Ben Tupper"
@@ -8,6 +8,9 @@ categories:
   - R-code
   - analysis
 ---
+
+![https://clipart-library.com/clipart/6cr5qM4oi.htm](6cr5qM4oi.jpg)
+
 
 Have you ever been frustrated by `factors` in R. `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed is that the nomenclature: "factors" and "levels" aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, as rose by any other name smells as sweet.
 
