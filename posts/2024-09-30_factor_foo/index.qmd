@@ -1,0 +1,136 @@
+---
+title: "Intro to cefi"
+format: html
+description: "Introduction to the cefi package"
+author: "Ben Tupper"
+date: "2024-09-27"
+categories:
+  - R-code
+  - analysis
+---
+
+Have you ever been frustrated by `factors` in R. `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed is that the nomenclature: "factors" and "levels" aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, as rose by any other name smells as sweet.
+
+Many operations in data science manipulations depend upon factored (categorical! grouped!) data.  In R this is very obvious when splitting data sets, plotting when color by group and when performing by-group statistics. 
+
+The [forcatsR package](https://forcats.tidyverse.org/) from the [tidyverse](https://tidyverse.org/) does a masterful job of helping users navigate with factors.  But there's no harm in looking to the base R utilities to gain a better handle of factors.
+
+## Factoring characater vectors
+
+Here we have a vector of strings (characters!) This the most obvious case - it just makes sense right out of the box.  We can ask R to group these which it does readily in alphabetical order.
+
+```{r}
+x = c("dog", "dog", "cat", "cat", "cat", "dog", "bird", "dog", "bird")
+fx = factor(x)
+fx
+```
+
+You can get a vector of the levels.
+
+```{r}
+levels(fx)
+```
+
+You can count the number of levels in the factor.
+
+```{r}
+nlevels(fx)
+```
+
+### Get the level per element 
+
+Now this gets a little trickier.  Suppose you wanted to know what level (group? category?) each element belongs to.  R can tell you which **index** into the levels vector. 
+
+```{r}
+as.numeric(fx)
+```
+
+Whoa! Say what?
+
+Well, R is telling us that the first two elements in fx belong to the level 3 group - which is "dog".  The next three elements belong to the "cat" level which is the second level. Did you catch that?
+
+### Specify you own order
+
+What if you want the order to be dogs, cats and then birds?  Just specify those as the `levels` argument.
+
+```{r}
+fx = factor(x, levels = c("dog", "cat", "bird"))
+fx
+```
+
+## Factoring characater integer vectors
+
+Equally intuitive is the idea behind factoring integer vectors. 
+
+```{r}
+x = c(3L, 0L, 0L, 3L, 9L, 9L, 0L)
+fx = factor(x)
+fx
+```
+Here you can see that the levels (groups) are 0, 3 and 9. But if we ask for the levels you'll see that internally R is helding them as charcaters (strings)!
+
+```{r}
+levels(fx)
+```
+That's just the way R handles it - it maintains the groupings (levels) as characters which are the most intuitive categorical data types.
+
+So what happens when you ask for the fatcors `as.numeric()`?
+
+```{r}
+as.numeric(fx)
+```
+
+Oh, it's the indices again, just like with the anuimal example above.
+
+## Factoring characater real-number vectors
+
+So, you should be pausing here and thinking about how R will make character grouping levels if we feed is real-numbers (not whole integers). We'll provide 6 real numbers and then see what it does...
+
+```{r}
+x = c(3.14, 2.19, 3.2, 2.0001, 0.0001, 0)
+fx = factor(x)
+fx
+```
+
+Oh, it makes one grouping level for each input value.  Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn't have much value?  
+
+What you can do to group real number is use `cut()`.
+
+### Use `cut()` on real numbers
+
+```{r}
+fx = cut(x, c(0,1,2,3,4), include.lowest = TRUE)
+fx
+```
+
+
+Well, this makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.
+
+The square bracket mean "inclusive" `[` while the `(` means "exclusive" boundaries.
+
+So, let's see the what we can know about the levels.
+
+```{r}
+nlevels(fx)
+levels(fx)
+```
+
+Once again, the levels (groupings) are returned to us as strings.  We could specify our own.
+
+```{r}
+fx = cut(x, c(0,1,2,3,4), include.lowest = TRUE, labels = c("almost none", "low", "medium", "high"))
+fx
+```
+
+This is different than  what we have seen before - in thas case the actual values have been changed to the grouping label we provided.  This provides a mechanism for you to transform real numeric data to labels quickly. 
+
+And can we get back to the numeric index mapping?
+
+```{r}
+as.numeric(fx)
+```
+Yup!
+
+### Summary
+
+`factor()` provides a means for grouping elements in a vector - they work most intuitively with character and integer vectors. Use `cut()` to do similar groupings using real numbers.
