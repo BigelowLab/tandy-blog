@@ -1,21 +1,20 @@
 ---
 title: "About"
-image: bigelow.png
+image: toof.png
 about:
   template: trestles
   links:
     - icon: github
       text: Github
       href: https://github.com/BigelowLab/tandy-blog
+---
 
----
----
-title: "About"
----
 
 The [Tandy Center for Ocean Forecasting](https://www.bigelow.org/services/ocean-forecasting/) is a computational oceanographic team at [Bigelow Laboratory](https://www.bigelow.org). We work with partners to develop and deploy real-time ocean forecasting tools for industry, conservation, resource management, communities, and education. Our aim is for people to have access to tools and resources they need to use and deploy forecasts.
 
 We work both on developing new forecasting technologies and algorithms, and on putting forecasts in the hands of people to solve practical problems. The forecasts use cutting edge machine learning algorithms and draw on data ranging from satellites to measurements on the water.
 
 We envision a world where ocean forecasts provide accessible and equitable tools for prospering in a changing ocean environment.
+
+Please feel free to [contact us](mailto:nrecord@bigelow.org).
 

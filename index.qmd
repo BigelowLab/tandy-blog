@@ -14,7 +14,6 @@ title-block-banner: true
 feed: true
 ---
 
-# Welcome!
-
+![](tcof.png)
 Welcome to the [Tandy Center for Ocean Forecasting](https://www.bigelow.org/services/ocean-forecasting/) data science blog!
 
