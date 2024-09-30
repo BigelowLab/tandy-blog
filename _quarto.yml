@@ -12,7 +12,7 @@ website:
       - icon: github
         href: https://github.com/bigelowlab/tandy-blog
       - icon: rss
-        href: index.xml
+        href: sitemap.xml
 html:
   theme: cosmo
   css: styles.css
