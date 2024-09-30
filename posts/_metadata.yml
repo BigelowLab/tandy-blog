@@ -6,3 +6,6 @@ freeze: true
 
 # Enable banner style title blocks
 title-block-banner: true
+
+# https://albert-rapp.de/posts/13_quarto_blog_writing_guide/13_quarto_blog_writing_guide.html#add-a-footer-below-blog-posts
+include-after-body: ../footer.html
