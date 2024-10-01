@@ -9,19 +9,19 @@ categories:
   - analysis
 ---
 
-![https://clipart-library.com/clipart/6cr5qM4oi.htm](6cr5qM4oi.jpg)
+![From https://clipart-library.com/clipart/6cr5qM4oi.htm](6cr5qM4oi.jpg){.lightbox}
 
 ## Fooey!
 
-Have you ever been frustrated by `factors` in R? `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed is that the nomenclature: "factors" and "levels" aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, as rose by any other name smells as sweet.
+Have you ever been frustrated by `factors` in R? `factors` are vectors where elements have been grouped into categories which are called "levels".  Recently we had a discussion about what makes `factors` sometimes seem opaque.  One thing we agreed upon is that the nomenclature ("factors" and "levels") aren't as intuitive as other names might be such as "categoricals" and "groups" (or "categories").  Fortunately, a rose by any other name smells as sweet.
 
-Many operations in data science manipulations depend upon factored (categorical! grouped!) data.  In R this is very obvious when splitting data sets, plotting when color by group and when performing by-group statistics. 
+Many operations in data science manipulations depend upon factored (categorical! grouped!) data.  In R this is very obvious when splitting data sets, plotting when coloring by group and when performing by-group statistics. 
 
-The [forcatsR package](https://forcats.tidyverse.org/) from the [tidyverse](https://tidyverse.org/) does a masterful job of helping users navigate with factors.  But there's no harm in looking to the base R utilities to gain a better handle of factors.
+The [forcats R package](https://forcats.tidyverse.org/) from the [tidyverse](https://tidyverse.org/) does a masterful job of helping users navigate code factors.  But there's no harm in looking to the base R utilities to gain a better handle of factors.
 
-## Factoring characater vectors
+## Factoring character vectors
 
-Here we have a vector of strings (characters!) This the most obvious case - it just makes sense right out of the box.  We can ask R to group these which it does readily in alphabetical order.
+Here we have a vector of strings (characters!) This the most obvious case - it just makes sense right out of the box.  We can ask R to group these (factor them!) which it does readily in alphabetical order.
 
 ```{r}
 x = c("dog", "dog", "cat", "cat", "cat", "dog", "bird", "dog", "bird")
@@ -43,7 +43,7 @@ nlevels(fx)
 
 ### Get the level per element 
 
-Now this gets a little trickier.  Suppose you wanted to know what level (group? category?) each element belongs to.  R can tell you which **index** into the levels vector. 
+Now this gets a little trickier.  Suppose you wanted to know what level (group? category?) each element belongs to.  R can tell you the **indecies** into the levels vector. 
 
 ```{r}
 as.numeric(fx)
@@ -51,7 +51,7 @@ as.numeric(fx)
 
 Whoa! Say what?
 
-Well, R is telling us that the first two elements in fx belong to the level 3 group - which is "dog".  The next three elements belong to the "cat" level which is the second level. Did you catch that?
+Well, R is telling us that the first two elements in fx belong to the level 3 group - which is "dog".  The next three elements belong to the "cat" level which is the 2nd level. Did you catch that?
 
 ### Specify you own order
 
@@ -62,16 +62,16 @@ fx = factor(x, levels = c("dog", "cat", "bird"))
 fx
 ```
 
-## Factoring characater integer vectors
+## Factoring integer vectors
 
-Equally intuitive is the idea behind factoring integer vectors. 
+Equally intuitive is the idea behind factoring integer vectors. Note that we indicate to R that we are specifying integers with the trailing "L" after each number.  The "L" comes from "long integer" which has it's own [history](https://www.techopedia.com/definition/24004/long-integer.
 
 ```{r}
 x = c(3L, 0L, 0L, 3L, 9L, 9L, 0L)
 fx = factor(x)
 fx
 ```
-Here you can see that the levels (groups) are 0, 3 and 9. But if we ask for the levels you'll see that internally R is helding them as charcaters (strings)!
+Here you can see that the levels (groups) are 0, 3 and 9. But if we ask for the levels you'll see that internally R is helding them as characters (strings)!
 
 ```{r}
 levels(fx)
@@ -84,9 +84,9 @@ So what happens when you ask for the fatcors `as.numeric()`?
 as.numeric(fx)
 ```
 
-Oh, it's the indices again, just like with the anuimal example above.
+Oh, it's the indices again, just like with the animal example above.
 
-## Factoring characater real-number vectors
+## Factoring real-number vectors
 
 So, you should be pausing here and thinking about how R will make character grouping levels if we feed is real-numbers (not whole integers). We'll provide 6 real numbers and then see what it does...
 
@@ -96,11 +96,14 @@ fx = factor(x)
 fx
 ```
 
-Oh, it makes one grouping level for each input value.  Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn't have much value?  
+Oh, it makes one grouping level for each input value.  Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn't have much value. What's the point of grouping if R makes a group for every element in the vector?
 
-What you can do to group real number is use `cut()`.
+What you can do to group real numbers is use `cut()`.
 
 ### Use `cut()` on real numbers
+
+Cut divides a set of real numbers into groups based upon boundaries (aka "breaks").  We'll take the same collection of real numbers and cut them into groups: 0-1, 1-2, 2-3, 3-4 where the left hand boundary is inclusive.
+
 
 ```{r}
 fx = cut(x, c(0,1,2,3,4), include.lowest = TRUE)
@@ -108,7 +111,7 @@ fx
 ```
 
 
-Well, this makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.
+Well, 4 groups just like we spcified!  This makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.
 
 The square bracket mean "inclusive" `[` while the `(` means "exclusive" boundaries.
 
@@ -119,14 +122,14 @@ nlevels(fx)
 levels(fx)
 ```
 
-Once again, the levels (groupings) are returned to us as strings.  We could specify our own.
+Once again, the levels (groupings) are returned to us as characters  We could specify our own special group names using the `labels` argument.
 
 ```{r}
 fx = cut(x, c(0,1,2,3,4), include.lowest = TRUE, labels = c("almost none", "low", "medium", "high"))
 fx
 ```
 
-This is different than  what we have seen before - in thas case the actual values have been changed to the grouping label we provided.  This provides a mechanism for you to transform real numeric data to labels quickly. 
+This is different than  what we have seen before - in this case the actual values have been changed to the grouping label we provided.  This provides a mechanism for you to transform real numeric data to labels quickly. 
 
 And can we get back to the numeric index mapping?
 

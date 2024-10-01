@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/about.html</loc>
-    <lastmod>2024-09-30T17:37:04.571Z</lastmod>
-  </url>
-  <url>
     <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-27_cefi_intro/index.html</loc>
-    <lastmod>2024-09-30T17:37:04.592Z</lastmod>
+    <lastmod>2024-10-01T12:39:21.144Z</lastmod>
   </url>
   <url>
     <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-30_factor_foo/index.html</loc>
-    <lastmod>2024-09-30T18:50:50.186Z</lastmod>
+    <lastmod>2024-10-01T12:39:20.384Z</lastmod>
   </url>
   <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-25_usdot_roads/index.html</loc>
-    <lastmod>2024-09-30T17:37:04.589Z</lastmod>
+    <loc>https://bigelowlab.github.io/tandy-blog/about.html</loc>
+    <lastmod>2024-10-01T12:39:18.830Z</lastmod>
   </url>
   <url>
     <loc>https://bigelowlab.github.io/tandy-blog/index.html</loc>
-    <lastmod>2024-09-30T17:46:12.053Z</lastmod>
+    <lastmod>2024-10-01T12:39:19.653Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-25_usdot_roads/index.html</loc>
+    <lastmod>2024-10-01T12:39:20.786Z</lastmod>
   </url>
 </urlset>
