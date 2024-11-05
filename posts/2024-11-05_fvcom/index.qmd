@@ -1,0 +1,16 @@
+---
+title: "FVCOM"
+format: html
+description: "Updates to the FVCOM package"
+author: "Ben Tupper"
+date: "2024-11-05"
+categories:
+  - data
+  - packages
+---
+
+[FVCOM](https://www.fvcom.org/) provides ocean model data for the Gulf of Maine and a number estuaries in the Gulf of Maine. The model data is delivered via [OPeNDAP](https://www.opendap.org/) services at a number of sigma depth levels and a different time periods. The mesh (compised of nodes and elements or facets) is pretty easy to navigate, and oceanographic state variables are provide.  
+
+![FVCOM mesh for the Guld of Maine](fvcom-mesh.png)
+
+You can read more about it on the [github page](https://github.com/BigelowLab/fvcom) for the `fvcom` R package.  Recent updates include refreshing stale links, removing unneccessary dependencies and providing `stars` output if one wants to rasterize a portion of the mesh. 
