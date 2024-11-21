@@ -1,0 +1,16 @@
+---
+title: "copernicus"
+format: html
+description: "Updated copernicus R package"
+author: "Ben Tupper"
+date: "2024-11-21"
+categories:
+  - data
+  - packages
+---
+
+The [European Space Agency](https://www.esa.int/) provides access to marine data sets through the [Copernicus](https://marine.copernicus.eu/) data and services portal. Copernicus is a large repository of a variety of data products.We have recently updated the [copernicus](https://github.com/BigelowLab/copernicus) R package to reflect recent updates the the [Copernicus Marine Toolbox](https://help.marine.copernicus.eu/en/collections/9080063-copernicus-marine-toolbox). This package has been developed primarily around the [daily ocean physics forecast](https://data.marine.copernicus.eu/product/GLOBAL_ANALYSISFORECAST_PHY_001_024/download?dataset=cmems_mod_glo_phy_anfc_0.083deg_P1D-m) but with no or minimal modification it can work with other products.
+
+Here's an example of daily SST from the ocean forecast.
+
+![Daily SST forecasts for the northwest Atlantic](daily_sst.png)

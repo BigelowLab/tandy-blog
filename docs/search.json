@@ -53,7 +53,7 @@
     "href": "index.html",
     "title": "Data science blog",
     "section": "",
-    "text": "Welcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n\n\n\nmarspec\n\n\n\ndata\n\n\npackages\n\n\n\nNew R package for MARSPEC\n\n\n\nBen Tupper\n\n\nNov 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFVCOM\n\n\n\ndata\n\n\npackages\n\n\n\nUpdates to the FVCOM package\n\n\n\nBen Tupper\n\n\nNov 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFactor foo\n\n\n\nR-code\n\n\nanalysis\n\n\n\nIntroduction to factors\n\n\n\nBen Tupper\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntro to cefi\n\n\n\ndata\n\n\npackages\n\n\n\nIntroduction to the cefi package\n\n\n\nBen Tupper\n\n\nSep 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRoads and Vehicles\n\n\n\nnews\n\n\nanalysis\n\n\n\nThe recent history of roads and vehicles\n\n\n\nBen Tupper\n\n\nSep 25, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n\n\n\ncopernicus\n\n\n\ndata\n\n\npackages\n\n\n\nUpdated copernicus R package\n\n\n\nBen Tupper\n\n\nNov 21, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nmarspec\n\n\n\ndata\n\n\npackages\n\n\n\nNew R package for MARSPEC\n\n\n\nBen Tupper\n\n\nNov 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFVCOM\n\n\n\ndata\n\n\npackages\n\n\n\nUpdates to the FVCOM package\n\n\n\nBen Tupper\n\n\nNov 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFactor foo\n\n\n\nR-code\n\n\nanalysis\n\n\n\nIntroduction to factors\n\n\n\nBen Tupper\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntro to cefi\n\n\n\ndata\n\n\npackages\n\n\n\nIntroduction to the cefi package\n\n\n\nBen Tupper\n\n\nSep 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRoads and Vehicles\n\n\n\nnews\n\n\nanalysis\n\n\n\nThe recent history of roads and vehicles\n\n\n\nBen Tupper\n\n\nSep 25, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2024-09-25_usdot_roads/index.html",
@@ -74,6 +74,13 @@
     "href": "posts/2024-11-07-marspec/index.html",
     "title": "marspec",
     "section": "",
-    "text": "MARSPEC provides high resolution climatic and geophysical raster grids for the world ocean. The data is split into modern (1955–2010) and paleo (mid-Holocene and Last Glacial Maximum) climatology datasets. The data is delivered via http manual download in a compressed (7zip) bundle of a number of rasters. This new package is designed to simplify the download and management process for R users. One especially useful feature is that the package is agnostic about the raster data class - you can choose to read as stars or a SpatRaster data class.\n\n\n\nModern Mean SST at 10-minute resolurion"
+    "text": "MARSPEC provides high resolution climatic and geophysical raster grids for the world ocean. The data is split into modern (1955–2010) and paleo (mid-Holocene and Last Glacial Maximum) climatology datasets. The data is delivered via http manual download in a compressed (7zip) bundle of a number of rasters. This new package is designed to simplify the download and management process for R users. One especially useful feature is that the package is agnostic about the raster data class - you can choose to read as stars or a SpatRaster data class.\n\n\n\nModern Mean SST at 10-minute resolution"
+  },
+  {
+    "objectID": "posts/2024-11-21_copernicus/index.html",
+    "href": "posts/2024-11-21_copernicus/index.html",
+    "title": "copernicus",
+    "section": "",
+    "text": "The European Space Agency provides access to marine data sets through the Copernicus data and services portal. Copernicus is a large repository of a variety of data products.We have recently updated the copernicus R package to reflect recent updates the the Copernicus Marine Toolbox. This package has been developed primarily around the daily ocean physics forecast but with no or minimal modification it can work with other products.\nHere’s an example of daily SST from the ocean forecast.\n\n\n\nDaily SST forecasts for the northwest Atlantic"
   }
 ]
