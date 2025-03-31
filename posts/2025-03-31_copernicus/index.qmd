@@ -1,0 +1,56 @@
+---
+title: "Copernicus redux"
+format: html
+description: "Rebuilding the copernicus package"
+author: "Ben Tupper"
+date: "2025-03-31"
+categories:
+  - data
+  - packages
+---
+
+[Copernicus](https://marine.copernicus.eu/) serves a wide variety of data products through its [maribe data store](https://data.marine.copernicus.eu/products).  We have been wanting to leverage the modeled products such as [Global Ocean Physics Analysis and Forecast](https://data.marine.copernicus.eu/product/GLOBAL_ANALYSISFORECAST_PHY_001_024/description) because it is high resolution, gapless and provides forecasts out to 10 days.  It has a companion [Global Ocean Physics Reanalysis](https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description) which carries the same spatial extent and resolution, but goes back to 1993. This solves, for daily and weekly forecast, the difficulty of, well, forecasting!  Until now the best we could achieve in an operational sense has been nowcasting.  
+
+
+# Forecasts
+
+We currently store daily forecasts going back to 2022-06-01 (and of course going 9 days ahead of today) for the Northwest Atlantic ("nwa") region. These are updated daily with new forecasts overwriting existing ones - this assumes that the closer we are to a "nowcast" the better the quality of the forecast.
+
+```
+   short_name standard_name                                     
+   <chr>      <chr>                                             
+ 1 pbo        sea_water_pressure_at_sea_floor                   
+ 2 sob        sea_water_salinity_at_sea_floor                   
+ 3 tob        sea_water_potential_temperature_at_sea_floor      
+ 4 mlotst     ocean_mixed_layer_thickness_defined_by_sigma_theta
+ 5 zos        sea_surface_height_above_geoid                    
+ 6 uo         eastward_sea_water_velocity                       
+ 7 vo         northward_sea_water_velocity                      
+ 8 so         sea_water_salinity                                
+ 9 thetao     sea_water_potential_temperature                   
+10 wo         upward_sea_water_velocity   
+```
+Here's an example of sea surface height ("zos").
+
+![zos](forecast.png)
+
+
+# Reanalyses
+
+Reanalyses stretch back to 1993-01-01 but currently only extend to 2021-06-30.  With the advent of the relatively new [copernicusmarine toolbox](https://help.marine.copernicus.eu/en/collections/9080063-copernicus-marine-toolbox) it seems that some of the datasets are still being uploaded to the server. All we can do is wait... but in the meantime we have some 10k+ images covering the same extent and resolution as the forecasts going back to 1993.
+
+```
+  standard_name                                      variable     n
+  <chr>                                              <chr>    <int>
+1 sea_water_potential_temperature_at_sea_floor       bottomT  10408
+2 ocean_mixed_layer_thickness_defined_by_sigma_theta mlotst   10408
+3 sea_water_salinity                                 so       10408
+4 sea_water_potential_temperature                    thetao   10408
+5 eastward_sea_water_velocity                        uo       10408
+6 northward_sea_water_velocity                       vo       10408
+7 sea_surface_height_above_geoid                     zos      10408
+```
+
+# Next
+
+Next for us is to add some chemistry and biology to complement the physical parameters above.  
