@@ -7,10 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Ben Tupper">
-<meta name="dcterms.date" content="2024-09-30">
-<meta name="description" content="Introduction to factors">
+<meta name="dcterms.date" content="2024-11-05">
+<meta name="description" content="Updates to the FVCOM package">
 
-<title>Tandy Center for Ocean Forecasting - Factor foo</title>
+<title>Tandy Center for Ocean Forecasting - FVCOM</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,40 +22,6 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
-}
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,9 +42,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<script src="../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
-<link href="../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -152,15 +115,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Factor foo</h1>
+      <h1 class="title">FVCOM</h1>
                   <div>
         <div class="description">
-          Introduction to factors
+          Updates to the FVCOM package
         </div>
       </div>
                           <div class="quarto-categories">
-                <div class="quarto-category">R-code</div>
-                <div class="quarto-category">analysis</div>
+                <div class="quarto-category">data</div>
+                <div class="quarto-category">packages</div>
               </div>
                   </div>
   </div>
@@ -178,7 +141,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">September 30, 2024</p>
+        <p class="date">November 5, 2024</p>
       </div>
     </div>
     
@@ -197,165 +160,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 
+<p><a href="https://www.fvcom.org/">FVCOM</a> provides ocean model data for the Gulf of Maine and a number estuaries in the Gulf of Maine. The model data is delivered via <a href="https://www.opendap.org/">OPeNDAP</a> services at a number of sigma depth levels and a different time periods. The mesh (compised of nodes and elements or facets) is pretty easy to navigate, and oceanographic state variables are provide.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="6cr5qM4oi.jpg" class="lightbox" data-glightbox="description: .lightbox-desc-1" data-gallery="quarto-lightbox-gallery-1" title="From https://clipart-library.com/clipart/6cr5qM4oi.htm"><img src="6cr5qM4oi.jpg" class="img-fluid figure-img" alt="From https://clipart-library.com/clipart/6cr5qM4oi.htm"></a></p>
-<figcaption>From https://clipart-library.com/clipart/6cr5qM4oi.htm</figcaption>
+<p><img src="fvcom-mesh.png" class="img-fluid figure-img"></p>
+<figcaption>FVCOM mesh for the Guld of Maine</figcaption>
 </figure>
 </div>
-<section id="fooey" class="level2">
-<h2 class="anchored" data-anchor-id="fooey">Fooey!</h2>
-<p>Have you ever been frustrated by <code>factors</code> in R? <code>factors</code> are vectors where elements have been grouped into categories which are called “levels”. Recently we had a discussion about what makes <code>factors</code> sometimes seem opaque. One thing we agreed upon is that the nomenclature (“factors” and “levels”) aren’t as intuitive as other names might be such as “categoricals” and “groups” (or “categories”). Fortunately, a rose by any other name smells as sweet.</p>
-<p>Many operations in data science manipulations depend upon factored (categorical! grouped!) data. In R this is very obvious when splitting data sets, plotting when coloring by group and when performing by-group statistics.</p>
-<p>The <a href="https://forcats.tidyverse.org/">forcats R package</a> from the <a href="https://tidyverse.org/">tidyverse</a> does a masterful job of helping users navigate code factors. But there’s no harm in looking to the base R utilities to gain a better handle of factors.</p>
-</section>
-<section id="factoring-character-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="factoring-character-vectors">Factoring character vectors</h2>
-<p>Here we have a vector of strings (characters!) This the most obvious case - it just makes sense right out of the box. We can ask R to group these (factor them!) which it does readily in alphabetical order.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"dog"</span>, <span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"cat"</span>, <span class="st">"cat"</span>, <span class="st">"dog"</span>, <span class="st">"bird"</span>, <span class="st">"dog"</span>, <span class="st">"bird"</span>)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">factor</span>(x)</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] dog  dog  cat  cat  cat  dog  bird dog  bird
-Levels: bird cat dog</code></pre>
-</div>
-</div>
-<p>You can get a vector of the levels.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "bird" "cat"  "dog" </code></pre>
-</div>
-</div>
-<p>You can count the number of levels in the factor.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
-</div>
-</div>
-<section id="get-the-level-per-element" class="level3">
-<h3 class="anchored" data-anchor-id="get-the-level-per-element">Get the level per element</h3>
-<p>Now this gets a little trickier. Suppose you wanted to know what level (group? category?) each element belongs to. R can tell you the <strong>indecies</strong> into the levels vector.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 3 2 2 2 3 1 3 1</code></pre>
-</div>
-</div>
-<p>Whoa! Say what?</p>
-<p>Well, R is telling us that the first two elements in fx belong to the level 3 group - which is “dog”. The next three elements belong to the “cat” level which is the 2nd level. Did you catch that?</p>
-</section>
-<section id="specify-you-own-order" class="level3">
-<h3 class="anchored" data-anchor-id="specify-you-own-order">Specify you own order</h3>
-<p>What if you want the order to be dogs, cats and then birds? Just specify those as the <code>levels</code> argument.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">factor</span>(x, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"dog"</span>, <span class="st">"cat"</span>, <span class="st">"bird"</span>))</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] dog  dog  cat  cat  cat  dog  bird dog  bird
-Levels: dog cat bird</code></pre>
-</div>
-</div>
-</section>
-</section>
-<section id="factoring-integer-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="factoring-integer-vectors">Factoring integer vectors</h2>
-<p>Equally intuitive is the idea behind factoring integer vectors. Note that we indicate to R that we are specifying integers with the trailing “L” after each number. The “L” comes from “long integer” which has it’s own [history](https://www.techopedia.com/definition/24004/long-integer.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="dv">3</span>L, <span class="dv">0</span>L, <span class="dv">0</span>L, <span class="dv">3</span>L, <span class="dv">9</span>L, <span class="dv">9</span>L, <span class="dv">0</span>L)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">factor</span>(x)</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3 0 0 3 9 9 0
-Levels: 0 3 9</code></pre>
-</div>
-</div>
-<p>Here you can see that the levels (groups) are 0, 3 and 9. But if we ask for the levels you’ll see that internally R is helding them as characters (strings)!</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "0" "3" "9"</code></pre>
-</div>
-</div>
-<p>That’s just the way R handles it - it maintains the groupings (levels) as characters which are the most intuitive categorical data types.</p>
-<p>So what happens when you ask for the fatcors <code>as.numeric()</code>?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 2 1 1 2 3 3 1</code></pre>
-</div>
-</div>
-<p>Oh, it’s the indices again, just like with the animal example above.</p>
-</section>
-<section id="factoring-real-number-vectors" class="level2">
-<h2 class="anchored" data-anchor-id="factoring-real-number-vectors">Factoring real-number vectors</h2>
-<p>So, you should be pausing here and thinking about how R will make character grouping levels if we feed is real-numbers (not whole integers). We’ll provide 6 real numbers and then see what it does…</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">=</span> <span class="fu">c</span>(<span class="fl">3.14</span>, <span class="fl">2.19</span>, <span class="fl">3.2</span>, <span class="fl">2.0001</span>, <span class="fl">0.0001</span>, <span class="dv">0</span>)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">factor</span>(x)</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3.14   2.19   3.2    2.0001 1e-04  0     
-Levels: 0 1e-04 2.0001 2.19 3.14 3.2</code></pre>
-</div>
-</div>
-<p>Oh, it makes one grouping level for each input value. Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn’t have much value. What’s the point of grouping if R makes a group for every element in the vector?</p>
-<p>What you can do to group real numbers is use <code>cut()</code>.</p>
-<section id="use-cut-on-real-numbers" class="level3">
-<h3 class="anchored" data-anchor-id="use-cut-on-real-numbers">Use <code>cut()</code> on real numbers</h3>
-<p>Cut divides a set of real numbers into groups based upon boundaries (aka “breaks”). We’ll take the same collection of real numbers and cut them into groups: 0-1, 1-2, 2-3, 3-4 where the left hand boundary is inclusive.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">cut</span>(x, <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] (3,4] (2,3] (3,4] (2,3] [0,1] [0,1]
-Levels: [0,1] (1,2] (2,3] (3,4]</code></pre>
-</div>
-</div>
-<p>Well, 4 groups just like we spcified! This makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.</p>
-<p>The square bracket mean “inclusive” <code>[</code> while the <code>(</code> means “exclusive” boundaries.</p>
-<p>So, let’s see the what we can know about the levels.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "[0,1]" "(1,2]" "(2,3]" "(3,4]"</code></pre>
-</div>
-</div>
-<p>Once again, the levels (groupings) are returned to us as characters We could specify our own special group names using the <code>labels</code> argument.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>fx <span class="ot">=</span> <span class="fu">cut</span>(x, <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="at">include.lowest =</span> <span class="cn">TRUE</span>, <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"almost none"</span>, <span class="st">"low"</span>, <span class="st">"medium"</span>, <span class="st">"high"</span>))</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>fx</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] high        medium      high        medium      almost none almost none
-Levels: almost none low medium high</code></pre>
-</div>
-</div>
-<p>This is different than what we have seen before - in this case the actual values have been changed to the grouping label we provided. This provides a mechanism for you to transform real numeric data to labels quickly.</p>
-<p>And can we get back to the numeric index mapping?</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.numeric</span>(fx)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 4 3 4 3 1 1</code></pre>
-</div>
-</div>
-<p>Yup!</p>
-</section>
-<section id="summary" class="level3">
-<h3 class="anchored" data-anchor-id="summary">Summary</h3>
-<p><code>factor()</code> provides a means for grouping elements in a vector - they work most intuitively with character and integer vectors. Use <code>cut()</code> to do similar groupings using real numbers.</p>
+<p>You can read more about it on the <a href="https://github.com/BigelowLab/fvcom">github page</a> for the <code>fvcom</code> R package. Recent updates include refreshing stale links, removing unneccessary dependencies and providing <code>stars</code> output if one wants to rasterize a portion of the mesh.</p>
 
 
-<div class="hidden" aria-hidden="true">
-<span class="glightbox-desc lightbox-desc-1">From https://clipart-library.com/clipart/6cr5qM4oi.htm</span>
-</div>
-</section>
-</section>
 
 </main> <!-- /main -->
 <div>
@@ -757,31 +571,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 });
 </script>
 </div> <!-- /content -->
-<script>var lightboxQuarto = GLightbox({"loop":false,"openEffect":"zoom","descPosition":"bottom","selector":".lightbox","closeEffect":"zoom"});
-window.onload = () => {
-  lightboxQuarto.on('slide_before_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    const href = trigger.getAttribute('href');
-    if (href !== null) {
-      const imgEl = window.document.querySelector(`a[href="${href}"] img`);
-      if (imgEl !== null) {
-        const srcAttr = imgEl.getAttribute("src");
-        if (srcAttr && srcAttr.startsWith("data:")) {
-          slideConfig.href = srcAttr;
-        }
-      }
-    } 
-  });
-
-  lightboxQuarto.on('slide_after_load', (data) => {
-    const { slideIndex, slideNode, slideConfig, player, trigger } = data;
-    if (window.Quarto?.typesetMath) {
-      window.Quarto.typesetMath(slideNode);
-    }
-  });
-
-};
-          </script>
 
 
 

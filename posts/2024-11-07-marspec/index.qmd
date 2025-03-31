@@ -1,0 +1,14 @@
+---
+title: "marspec"
+format: html
+description: "New R package for MARSPEC"
+author: "Ben Tupper"
+date: "2024-11-07"
+categories:
+  - data
+  - packages
+---
+
+[MARSPEC](http://www.marspec.org/) provides high resolution climatic and geophysical raster grids for the world ocean. The data is split into modern (1955–2010) and paleo (mid-Holocene and Last Glacial Maximum) climatology datasets.  The data is delivered via [http](https://en.wikipedia.org/wiki/HTTP) manual download in a compressed (7zip) bundle of a number of rasters.  This [new package](https://github.com/BigelowLab/marspec) is designed to simplify the download and management process for R users.  One especially useful feature is that the package is agnostic about the raster data class - you can choose to read as [stars](https://r-spatial.github.io/stars/) or a [SpatRaster](https://rspatial.org/) data class.
+
+![Modern Mean SST at 10-minute resolution](read_spatraster-1.png)
