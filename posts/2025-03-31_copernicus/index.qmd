@@ -11,6 +11,7 @@ categories:
 
 [Copernicus](https://marine.copernicus.eu/) serves a wide variety of data products through its [maribe data store](https://data.marine.copernicus.eu/products).  We have been wanting to leverage the modeled products such as [Global Ocean Physics Analysis and Forecast](https://data.marine.copernicus.eu/product/GLOBAL_ANALYSISFORECAST_PHY_001_024/description) because it is high resolution, gapless and provides forecasts out to 10 days.  It has a companion [Global Ocean Physics Reanalysis](https://data.marine.copernicus.eu/product/GLOBAL_MULTIYEAR_PHY_001_030/description) which carries the same spatial extent and resolution, but goes back to 1993. This solves, for daily and weekly forecast, the difficulty of, well, forecasting!  Until now the best we could achieve in an operational sense has been nowcasting.  
 
+We have completely updated our [R package copernicus](https://github.com/BigelowLab/copernicus) - there are so many changes,: no more OPeNDAP, not more `copernicus-marine` app, new product and dataset ids, new product and dataset catalogs.  It seems everything changed since the package was first made in 2021.  Wow!
 
 # Forecasts
 
