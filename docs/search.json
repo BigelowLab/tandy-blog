@@ -1,5 +1,19 @@
 [
   {
+    "objectID": "posts/2025-07-14_gshhg/index.html",
+    "href": "posts/2025-07-14_gshhg/index.html",
+    "title": "GSHHG",
+    "section": "",
+    "text": "We often use Natural Earth to provide free and dependable shoreline respresentations. It’s a great data source and has a great R package to facilitate its usage. But is has (reasonable) limits in its resolution. Higher resolution data is available from GSHHG, which we make R-friendly with the gshhg R package.\nThe plot below compares the highest resolution of Natural Earth with the highest resolution of GSHHG for the Casco Bay (Maine) region.\n\n\n\nNatural Earth in Orange, GSHHG in black"
+  },
+  {
+    "objectID": "posts/2024-11-07-marspec/index.html",
+    "href": "posts/2024-11-07-marspec/index.html",
+    "title": "marspec",
+    "section": "",
+    "text": "MARSPEC provides high resolution climatic and geophysical raster grids for the world ocean. The data is split into modern (1955–2010) and paleo (mid-Holocene and Last Glacial Maximum) climatology datasets. The data is delivered via http manual download in a compressed (7zip) bundle of a number of rasters. This new package is designed to simplify the download and management process for R users. One especially useful feature is that the package is agnostic about the raster data class - you can choose to read as stars or a SpatRaster data class.\n\n\n\nModern Mean SST at 10-minute resolution"
+  },
+  {
     "objectID": "posts/2024-09-27_cefi_intro/index.html",
     "href": "posts/2024-09-27_cefi_intro/index.html",
     "title": "Intro to cefi",
@@ -39,7 +53,7 @@
     "href": "posts/2024-09-30_factor_foo/index.html#factoring-real-number-vectors",
     "title": "Factor foo",
     "section": "Factoring real-number vectors",
-    "text": "Factoring real-number vectors\nSo, you should be pausing here and thinking about how R will make character grouping levels if we feed is real-numbers (not whole integers). We’ll provide 6 real numbers and then see what it does…\n\nx = c(3.14, 2.19, 3.2, 2.0001, 0.0001, 0)\nfx = factor(x)\nfx\n\n[1] 3.14   2.19   3.2    2.0001 1e-04  0     \nLevels: 0 1e-04 2.0001 2.19 3.14 3.2\n\n\nOh, it makes one grouping level for each input value. Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn’t have much value. What’s the point of grouping if R makes a group for every element in the vector?\nWhat you can do to group real numbers is use cut().\n\nUse cut() on real numbers\nCut divides a set of real numbers into groups based upon boundaries (aka “breaks”). We’ll take the same collection of real numbers and cut them into groups: 0-1, 1-2, 2-3, 3-4 where the left hand boundary is inclusive.\n\nfx = cut(x, c(0,1,2,3,4), include.lowest = TRUE)\nfx\n\n[1] (3,4] (2,3] (3,4] (2,3] [0,1] [0,1]\nLevels: [0,1] (1,2] (2,3] (3,4]\n\n\nWell, 4 groups just like we spcified! This makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.\nThe square bracket mean “inclusive” [ while the ( means “exclusive” boundaries.\nSo, let’s see the what we can know about the levels.\n\nnlevels(fx)\n\n[1] 4\n\nlevels(fx)\n\n[1] \"[0,1]\" \"(1,2]\" \"(2,3]\" \"(3,4]\"\n\n\nOnce again, the levels (groupings) are returned to us as characters We could specify our own special group names using the labels argument.\n\nfx = cut(x, c(0,1,2,3,4), include.lowest = TRUE, labels = c(\"almost none\", \"low\", \"medium\", \"high\"))\nfx\n\n[1] high        medium      high        medium      almost none almost none\nLevels: almost none low medium high\n\n\nThis is different than what we have seen before - in this case the actual values have been changed to the grouping label we provided. This provides a mechanism for you to transform real numeric data to labels quickly.\nAnd can we get back to the numeric index mapping?\n\nas.numeric(fx)\n\n[1] 4 3 4 3 1 1\n\n\nYup!\n\n\nSummary\nfactor() provides a means for grouping elements in a vector - they work most intuitively with character and integer vectors. Use cut() to do similar groupings using real numbers.\n\n\n\nFrom https://clipart-library.com/clipart/6cr5qM4oi.htm"
+    "text": "Factoring real-number vectors\nSo, you should be pausing here and thinking about how R will make character grouping levels if we feed is real-numbers (not whole integers). We’ll provide 6 real numbers and then see what it does…\n\nx = c(3.14, 2.19, 3.2, 2.0001, 0.0001, 0)\nfx = factor(x)\nfx\n\n[1] 3.14   2.19   3.2    2.0001 1e-04  0     \nLevels: 0 1e-04 2.0001 2.19 3.14 3.2\n\n\nOh, it makes one grouping level for each input value. Well, that sort of makes sense, but also brings one the realization that factoring real numbers doesn’t have much value. What’s the point of grouping if R makes a group for every element in the vector?\nWhat you can do to group real numbers is use cut().\n\nUse cut() on real numbers\nCut divides a set of real numbers into groups based upon boundaries (aka “breaks”). We’ll take the same collection of real numbers and cut them into groups: 0-1, 1-2, 2-3, 3-4 where the left hand boundary is inclusive.\n\nfx = cut(x, c(0,1,2,3,4), include.lowest = TRUE)\nfx\n\n[1] (3,4] (2,3] (3,4] (2,3] [0,1] [0,1]\nLevels: [0,1] (1,2] (2,3] (3,4]\n\n\nWell, 4 groups just like we spcified! This makes a bit of sense since we are cutting into groups 0-1, 1-2, 2-3, and 3-4.\nThe square bracket mean “inclusive” [ while the ( means “exclusive” boundaries.\nSo, let’s see the what we can know about the levels.\n\nnlevels(fx)\n\n[1] 4\n\nlevels(fx)\n\n[1] \"[0,1]\" \"(1,2]\" \"(2,3]\" \"(3,4]\"\n\n\nOnce again, the levels (groupings) are returned to us as characters We could specify our own special group names using the labels argument.\n\nfx = cut(x, c(0,1,2,3,4), include.lowest = TRUE, labels = c(\"almost none\", \"low\", \"medium\", \"high\"))\nfx\n\n[1] high        medium      high        medium      almost none almost none\nLevels: almost none low medium high\n\n\nThis is different than what we have seen before - in this case the actual values have been changed to the grouping label we provided. This provides a mechanism for you to transform real numeric data to labels quickly.\nAnd can we get back to the numeric index mapping?\n\nas.numeric(fx)\n\n[1] 4 3 4 3 1 1\n\n\nYup!\n\n\nSummary\nfactor() provides a means for grouping elements in a vector - they work most intuitively with character and integer vectors. Use cut() to do similar groupings using real numbers."
   },
   {
     "objectID": "about.html",
@@ -53,7 +67,7 @@
     "href": "index.html",
     "title": "Data science blog",
     "section": "",
-    "text": "Welcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n\n\n\nCopernicus redux\n\n\n\ndata\n\n\npackages\n\n\n\nRebuilding the copernicus package\n\n\n\nBen Tupper\n\n\nMar 31, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nmarspec\n\n\n\ndata\n\n\npackages\n\n\n\nNew R package for MARSPEC\n\n\n\nBen Tupper\n\n\nNov 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFVCOM\n\n\n\ndata\n\n\npackages\n\n\n\nUpdates to the FVCOM package\n\n\n\nBen Tupper\n\n\nNov 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFactor foo\n\n\n\nR-code\n\n\nanalysis\n\n\n\nIntroduction to factors\n\n\n\nBen Tupper\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntro to cefi\n\n\n\ndata\n\n\npackages\n\n\n\nIntroduction to the cefi package\n\n\n\nBen Tupper\n\n\nSep 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRoads and Vehicles\n\n\n\nnews\n\n\nanalysis\n\n\n\nThe recent history of roads and vehicles\n\n\n\nBen Tupper\n\n\nSep 25, 2024\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Welcome to the Tandy Center for Ocean Forecasting data science blog!\n\n\n\n\n\n\n\n\n\n\n\n\nGSHHG\n\n\n\ndata\n\n\npackages\n\n\n\nGSHHG high resolution shoreline\n\n\n\nBen Tupper\n\n\nJul 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nCopernicus redux\n\n\n\ndata\n\n\npackages\n\n\n\nRebuilding the copernicus package\n\n\n\nBen Tupper\n\n\nMar 31, 2025\n\n\n\n\n\n\n\n\n\n\n\n\nmarspec\n\n\n\ndata\n\n\npackages\n\n\n\nNew R package for MARSPEC\n\n\n\nBen Tupper\n\n\nNov 7, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFVCOM\n\n\n\ndata\n\n\npackages\n\n\n\nUpdates to the FVCOM package\n\n\n\nBen Tupper\n\n\nNov 5, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nFactor foo\n\n\n\nR-code\n\n\nanalysis\n\n\n\nIntroduction to factors\n\n\n\nBen Tupper\n\n\nSep 30, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nIntro to cefi\n\n\n\ndata\n\n\npackages\n\n\n\nIntroduction to the cefi package\n\n\n\nBen Tupper\n\n\nSep 27, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nRoads and Vehicles\n\n\n\nnews\n\n\nanalysis\n\n\n\nThe recent history of roads and vehicles\n\n\n\nBen Tupper\n\n\nSep 25, 2024\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2024-09-25_usdot_roads/index.html",
@@ -68,13 +82,6 @@
     "title": "FVCOM",
     "section": "",
     "text": "FVCOM provides ocean model data for the Gulf of Maine and a number estuaries in the Gulf of Maine. The model data is delivered via OPeNDAP services at a number of sigma depth levels and a different time periods. The mesh (compised of nodes and elements or facets) is pretty easy to navigate, and oceanographic state variables are provide.\n\n\n\nFVCOM mesh for the Guld of Maine\n\n\nYou can read more about it on the github page for the fvcom R package. Recent updates include refreshing stale links, removing unneccessary dependencies and providing stars output if one wants to rasterize a portion of the mesh."
-  },
-  {
-    "objectID": "posts/2024-11-07-marspec/index.html",
-    "href": "posts/2024-11-07-marspec/index.html",
-    "title": "marspec",
-    "section": "",
-    "text": "MARSPEC provides high resolution climatic and geophysical raster grids for the world ocean. The data is split into modern (1955–2010) and paleo (mid-Holocene and Last Glacial Maximum) climatology datasets. The data is delivered via http manual download in a compressed (7zip) bundle of a number of rasters. This new package is designed to simplify the download and management process for R users. One especially useful feature is that the package is agnostic about the raster data class - you can choose to read as stars or a SpatRaster data class.\n\n\n\nModern Mean SST at 10-minute resolurion"
   },
   {
     "objectID": "posts/2025-03-31_copernicus/index.html",
