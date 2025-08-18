@@ -1,39 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2025-07-14_gshhg/index.html</loc>
-    <lastmod>2025-07-14T15:54:31.719Z</lastmod>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2025-08-18_marinethermalwaves/index.html</loc>
+    <lastmod>2025-08-18T17:50:11.083Z</lastmod>
   </url>
   <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-11-07-marspec/index.html</loc>
-    <lastmod>2025-03-31T14:13:14.138Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-27_cefi_intro/index.html</loc>
-    <lastmod>2024-09-30T16:46:54.753Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-30_factor_foo/index.html</loc>
-    <lastmod>2024-10-01T12:38:25.430Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/about.html</loc>
-    <lastmod>2024-09-30T17:27:52.621Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/index.html</loc>
-    <lastmod>2024-10-01T12:20:59.490Z</lastmod>
-  </url>
-  <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-25_usdot_roads/index.html</loc>
-    <lastmod>2024-09-30T16:46:28.735Z</lastmod>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2025-03-31_copernicus/index.html</loc>
+    <lastmod>2025-03-31T15:22:12.439Z</lastmod>
   </url>
   <url>
     <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-11-05_fvcom/index.html</loc>
     <lastmod>2025-03-31T14:13:14.135Z</lastmod>
   </url>
   <url>
-    <loc>https://bigelowlab.github.io/tandy-blog/posts/2025-03-31_copernicus/index.html</loc>
-    <lastmod>2025-03-31T15:22:12.439Z</lastmod>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-25_usdot_roads/index.html</loc>
+    <lastmod>2024-09-30T16:46:28.735Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/index.html</loc>
+    <lastmod>2024-10-01T12:20:59.490Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/about.html</loc>
+    <lastmod>2024-09-30T17:27:52.621Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-30_factor_foo/index.html</loc>
+    <lastmod>2024-10-01T12:38:25.430Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-09-27_cefi_intro/index.html</loc>
+    <lastmod>2024-09-30T16:46:54.753Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2024-11-07-marspec/index.html</loc>
+    <lastmod>2025-03-31T14:13:14.138Z</lastmod>
+  </url>
+  <url>
+    <loc>https://bigelowlab.github.io/tandy-blog/posts/2025-07-14_gshhg/index.html</loc>
+    <lastmod>2025-07-14T15:54:31.719Z</lastmod>
   </url>
 </urlset>
