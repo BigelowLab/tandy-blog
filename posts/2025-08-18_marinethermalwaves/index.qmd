@@ -1,0 +1,25 @@
+---
+title: "Marine Thermal Waves"
+format: html
+description: "Marine Thermal Wave forecasts"
+author: "Ben Tupper"
+date: "2025-08-18"
+categories:
+  - data
+  - packages
+---
+
+
+![Marine Thermal Waves](https://github.com/BigelowLab/marinethermalwave/blob/main/README_files/figure-gfm/plot-1.png)
+
+The plot above is generated using the "marine heat wave" methodology proposed by [Hobday et al (2016)](https://www.sciencedirect.com/science/article/abs/pii/S0079661116000057).  You can read more about it [here](https://github.com/BigelowLab/marinethermalwave).  In a nutshell, conditions that identify a heat/cold wave are...
+
+  + daily values exceed the 90th percentile of values for the day of year measured over the last 30 years, or
+  
+  + daily values fall below the 10th percentile of values for the day of year measured over the last 30 years, and 
+  
+  + the event persists for 5 or more days*.
+  
+```
+* There is some allowance to merge heat/cold waves that are interrupted by up to 2 days
+```
